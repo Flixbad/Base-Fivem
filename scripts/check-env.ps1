@@ -52,12 +52,23 @@ if (-not (Test-Tool "7-Zip" { if ($sevenZip) { $sevenZip } else { $null } } "htt
     $ok = $false
 }
 
-$mysqlOk = Test-Tool "Client mysql (MariaDB)" {
-    $cmd = Get-Command mysql -ErrorAction SilentlyContinue
-    if ($cmd) { (mysql --version 2>&1 | Out-String) } else { $null }
-} "Installe MariaDB >= 10.9 : https://mariadb.org/download/"
+$mysqlExe = $null
+$cmd = Get-Command mysql -ErrorAction SilentlyContinue
+if ($cmd) { $mysqlExe = $cmd.Source }
+elseif (Test-Path "C:\Program Files\MariaDB 12.3\bin\mysql.exe") {
+    $mysqlExe = "C:\Program Files\MariaDB 12.3\bin\mysql.exe"
+}
 
-$svc = Get-Service -Name "*maria*","*mysql*" -ErrorAction SilentlyContinue | Select-Object -First 1
+$mysqlOk = Test-Tool "Client mysql (MariaDB)" {
+    if ($mysqlExe) { (& $mysqlExe --version 2>&1 | Out-String) } else { $null }
+} "Installe MariaDB >= 10.9 : winget install MariaDB.Server"
+
+$svc = Get-Service -Name "MariaDB" -ErrorAction SilentlyContinue
+if (-not $svc) {
+    $svc = Get-Service -ErrorAction SilentlyContinue | Where-Object {
+        $_.Name -match 'maria|mysql' -or $_.DisplayName -match 'Maria|MySQL'
+    } | Select-Object -First 1
+}
 if ($svc) {
     if ($svc.Status -eq "Running") {
         Write-Pass ("Service DB: " + $svc.Name + " (" + $svc.Status + ")")
@@ -66,8 +77,8 @@ if ($svc) {
         $ok = $false
     }
 } else {
-    Write-Warn "Aucun service MariaDB/MySQL detecte"
-    Write-Host "      Installe MariaDB 12.3 LTS (pas XAMPP)" -ForegroundColor DarkYellow
+    Write-Warn "Aucun service MariaDB detecte"
+    Write-Host "      Lance en admin: .\scripts\setup-mariadb.ps1" -ForegroundColor DarkYellow
     $ok = $false
 }
 

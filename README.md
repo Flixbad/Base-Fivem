@@ -32,15 +32,20 @@ Serveur FiveM local pour apprendre, tester et s’amuser. Stack recommandée **2
 ## Installation rapide (recommandée)
 
 ```powershell
-# 1. Vérifier l'environnement
+# 1. Initialiser MariaDB (UAC admin) + DB qbox
+.\scripts\setup-mariadb.ps1
+
+# 2. Vérifier l'environnement
 .\scripts\check-env.ps1
 
-# 2. Télécharger / extraire les artifacts FXServer
+# 3. Télécharger / extraire les artifacts FXServer (déjà fait si tu suis ce repo)
 .\scripts\download-artifacts.ps1
 
-# 3. Lancer txAdmin (première config)
+# 4. Lancer txAdmin (première config)
 .\scripts\start-server.ps1
 ```
+
+> Clé licence Cfx.re obligatoire dans `.env` / txAdmin : https://portal.cfx.re/servers/subscription
 
 Dans **txAdmin** :
 
