@@ -1,0 +1,55 @@
+##############
+### OX LIB ###
+##############
+
+setr ox:primaryColor blue
+setr ox:primaryShade 8
+setr ox:userLocales 0
+setr ox:locale "fr"
+
+##################
+### OX TARGET ###
+##################
+
+setr ox_target:toggleHotkey 0
+setr ox_target:defaultHotkey LMENU
+setr ox_target:drawSprite 1
+setr ox_target:defaults 1
+setr ox_target:debug 0
+setr ox_target:leftClick 1
+
+####################
+### OX INVENTORY ###
+####################
+
+setr inventory:framework "qbx"
+setr inventory:slots 50
+setr inventory:weight 85000
+setr inventory:target true
+setr inventory:police ["police", "bcso", "sasp"]
+
+setr inventory:imagepath "nui://ox_inventory/web/images"
+setr inventory:autoreload false
+setr inventory:screenblur true
+setr inventory:keys ["TAB", "K", "F1"]
+setr inventory:enablekeys [249]
+setr inventory:aimedfiring false
+setr inventory:giveplayerlist true
+setr inventory:weaponanims true
+setr inventory:itemnotify true
+setr inventory:weaponnotify true
+setr inventory:dropprops true
+setr inventory:dropmodel "prop_med_bag_01b"
+setr inventory:weaponmismatch true
+setr inventory:ignoreweapons []
+setr inventory:suppresspickups 1
+
+set inventory:versioncheck true
+set inventory:clearstashes "6 MONTH"
+set inventory:webhook ""
+set inventory:loglevel 1
+set inventory:randomprices true
+set inventory:randomloot true
+set inventory:evidencegrade 2
+set inventory:trimplate true
+set inventory:accounts ["money"]

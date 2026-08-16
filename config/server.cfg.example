@@ -1,0 +1,96 @@
+# =============================================================================
+# Template server.cfg — référence FR (la recipe txAdmin génère le vrai fichier)
+# =============================================================================
+
+# Endpoints
+endpoint_add_tcp "0.0.0.0:30120"
+endpoint_add_udp "0.0.0.0:30120"
+
+sv_maxclients 8
+set steam_webApiKey "none"
+sets tags "qbox, local, dev, fr"
+
+# Identité
+sv_licenseKey "REMPLACER_PAR_TA_CLE_CFX"
+sv_hostname "Base Locale Qbox"
+sets sv_projectName "[Qbox] Base Locale"
+sets sv_projectDesc "Serveur local d apprentissage FiveM / Qbox"
+sets locale "fr-FR"
+# load_server_icon myLogo.png
+set sv_enforceGameBuild 3258
+
+# Base de données (oxmysql)
+set mysql_connection_string "mysql://fivem:change_me@127.0.0.1/qbox?charset=utf8mb4"
+
+# Chat
+set resources_useSystemChat true
+set qbx_chat:joinMessage "^2%s a rejoint le serveur"
+set qbx_chat:quitMessage "^1%s a quitte le serveur (%s)"
+
+# Voice
+exec voice.cfg
+
+# Qbox
+setr qb_locale "fr"
+setr qbx:enableBridge "true"
+set qbx:enableQueue "true"
+set qbx:bucketLockdownMode "inactive"
+set qbx:discordLink ""
+set qbx:max_jobs_per_player 1
+set qbx:max_gangs_per_player 1
+set qbx:setjob_replaces "true"
+set qbx:setgang_replaces "true"
+set qbx:cleanPlayerGroups "true"
+set qbx:allowMethodOverrides "true"
+set qbx:disableOverrideWarning "false"
+setr qbx:enableVehiclePersistence "false"
+setr qbx:vehiclePersistenceType "semi"
+set qbx:acknowledge "false"
+setr qbx:enableGroupManagement "false"
+setr qbx:motd "Bienvenue sur ta base locale Qbox !"
+
+# Apparence / météo
+setr illenium-appearance:locale "fr"
+setr weather_disablecd true
+
+# Ox
+exec ox.cfg
+
+# NPWD
+set npwd:framework "qbx"
+set SCREENSHOT_BASIC_TOKEN ""
+set NPWD_AUDIO_TOKEN ""
+
+# Loadscreen
+setr loadscreen:externalShutdown true
+set loadscreen:primaryColor "#f1e542"
+set loadscreen:shadowColor "#1a18077f"
+
+# Defaults CFX
+ensure mapmanager
+ensure chat
+ensure spawnmanager
+ensure sessionmanager
+stop basic-gamemode
+ensure hardcap
+ensure baseevents
+
+# Stack Qbox
+ensure ox_lib
+ensure qbx_core
+ensure ox_target
+ensure [ox]
+ensure [qbx]
+ensure [standalone]
+ensure [voice]
+ensure [assets]
+
+ensure [npwd-apps]
+ensure qbx_npwd
+ensure npwd
+
+## Permissions
+exec permissions.cfg
+
+## Divers
+exec misc.cfg
