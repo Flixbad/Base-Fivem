@@ -1,0 +1,14 @@
+{
+    "progress" : {
+        "attachHarness": "Připevnění závodního postroje",
+        "removeHarness": "Demontáž závodního postroje"
+    },
+    "notify": {
+        "notInCar": "Nejsi v autě"
+    },
+    "error": {
+        "seatbelton": "Nejdřív si sundej bezpečnostní pás",
+        "harnesson": "Nejdřív si sundej závodní postroj"
+    },
+    "toggleCommand": "Přepnout bezpečnostní pás"
+}

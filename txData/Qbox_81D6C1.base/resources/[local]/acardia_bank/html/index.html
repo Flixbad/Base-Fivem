@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="stylesheet" href="style.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"/>
+</head>
+<body>
+<div id="root" class="hidden">
+
+<!-- ════════ TABLETTE BANQUE ════════ -->
+<div id="tablet" class="hidden">
+  <div class="tab-wrap">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="sb-brand"><span class="sb-logo">A</span> Acardia Bank</div>
+      <ul class="sb-nav">
+        <li data-nav="home" class="active"><svg viewBox="0 0 24 24"><path d="M3 13h1l8-8 8 8h1v8a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg>Accueil</li>
+        <li data-nav="accounts"><svg viewBox="0 0 24 24"><path d="M2 7a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2zm2 0v10h16V7z"/></svg>Comptes</li>
+        <li data-nav="cards"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 14H4V10h16zm0-10H4V6h16z"/></svg>Cartes</li>
+        <li data-nav="transfer"><svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4V6H3V4h14zm-10 12l-4 4 4 4v-3h14v-2H7z"/></svg>Virements</li>
+        <li data-nav="history"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 10V7h-2v6.41l4.3 4.3 1.4-1.42z"/></svg>Historique</li>
+        <li data-nav="catalog"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>Ouvrir un compte</li>
+      </ul>
+      <div class="sb-footer">
+        <div class="sb-cash">Liquide : <strong id="cashLabel">$0</strong></div>
+        <button class="btn-close-tab" id="btnClose">Fermer</button>
+      </div>
+    </nav>
+    <!-- Main -->
+    <div class="tab-main">
+      <header class="tab-header">
+        <div>
+          <h1 id="screenTitle">Bienvenue</h1>
+          <p id="screenSub" class="muted"></p>
+        </div>
+        <button class="btn-back hidden" id="btnBack">← Retour</button>
+      </header>
+      <section id="tabletView" class="tab-content"></section>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ ATM / DAB ════════ -->
+<div id="atm" class="hidden">
+  <div class="atm-shell">
+    <div class="atm-bezel">
+      <div class="atm-brand">ACARDIA <span>DAB</span></div>
+      <div id="atmView"></div>
+      <button class="atm-cancel" id="atmClose">Annuler</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ MODALE MONTANT ════════ -->
+<div id="amountModal" class="modal-overlay hidden">
+  <div class="modal-box">
+    <h2 id="modalTitle">Montant</h2>
+    <p id="modalSub" class="muted"></p>
+    <div class="amount-presets" id="modalPresets"></div>
+    <div class="amount-input-wrap">
+      <span class="amount-prefix">$</span>
+      <input type="number" id="modalAmount" min="1" placeholder="Montant personnalisé"/>
+    </div>
+    <p id="modalError" class="modal-error hidden"></p>
+    <div class="modal-actions">
+      <button class="btn btn-primary" id="modalConfirm">Confirmer</button>
+      <button class="btn btn-ghost" id="modalCancel">Annuler</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- ════════ PAIEMENT SHOP (hors #root) ════════ -->
+<div id="shopPay" class="hidden">
+  <div class="sp-overlay">
+    <div class="sp-box">
+      <div class="sp-header">
+        <span class="sp-logo">A</span>
+        <span class="sp-title">Paiement Acardia Bank</span>
+        <button class="sp-close" id="spClose">✕</button>
+      </div>
+      <div class="sp-amount-bar">
+        <span class="sp-amount-label">Montant à payer</span>
+        <span class="sp-amount-value" id="spAmount">$0</span>
+      </div>
+      <div id="spBody"></div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

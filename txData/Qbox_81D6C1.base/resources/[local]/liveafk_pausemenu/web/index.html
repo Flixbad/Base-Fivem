@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acardia RP V2 Pause</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Oswald:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="hidden">
+    <div class="bg">
+      <div class="bg__wash"></div>
+      <div class="bg__grid"></div>
+      <div class="bg__scan"></div>
+      <div class="bg__orb"></div>
+      <div class="bg__film"></div>
+    </div>
+
+    <header class="top">
+      <div class="brand">
+        <span class="crown">♛</span>
+        <div>
+          <p class="brand__live"><span id="brandLive">ACARDIA</span> <span id="brandAfk">RP V2</span></p>
+          <p class="brand__sub" id="brandServer">Acardia RP V2</p>
+        </div>
+      </div>
+      <div class="clock">
+        <span id="clockTime">00:00</span>
+        <span id="clockCity">Los Santos</span>
+      </div>
+      <div class="online">
+        <span class="dot"></span>
+        <span id="onlineCount">0</span> en ligne
+      </div>
+    </header>
+
+    <main class="stage">
+      <section class="hero">
+        <p class="eyebrow" id="tagline">L archive du destin</p>
+        <h1 class="title">
+          <span class="title__ghost">PAUSE</span>
+          <span class="title__main">ARCHIVE</span>
+        </h1>
+        <p class="quote">« Ici, chaque choix laisse une trace. »</p>
+
+        <article class="dossier">
+          <div class="dossier__stamp">CONFIDENTIEL</div>
+          <h2 id="playerName">Citoyen</h2>
+          <p class="dossier__meta">
+            <span id="playerJob">Civil</span>
+            <span class="sep">·</span>
+            <span id="playerCid">—</span>
+            <span class="sep">·</span>
+            ID <span id="playerSid">0</span>
+          </p>
+          <div class="dossier__money">
+            <div>
+              <span class="lbl">Cash</span>
+              <strong id="playerCash">$0</strong>
+            </div>
+            <div>
+              <span class="lbl">Banque</span>
+              <strong id="playerBank">$0</strong>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <nav class="rail" id="rail" aria-label="Menu pause"></nav>
+    </main>
+
+    <footer class="bot">
+      <span>ENTREE pour valider · ESC pour fermer · ↑↓ pour naviguer</span>
+      <span>♛ ACARDIA RP V2</span>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

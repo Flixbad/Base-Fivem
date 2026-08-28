@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="cloth" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="clothLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c4b5fd"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3f4f6"/>
+      <stop offset="45%" stop-color="#c4c9d4"/>
+      <stop offset="100%" stop-color="#8b93a3"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="leather" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#78716c"/>
+      <stop offset="100%" stop-color="#44403c"/>
+    </linearGradient>
+    <filter id="shadow" x="-25%" y="-15%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <ellipse cx="128" cy="236" rx="70" ry="10" fill="#000" opacity="0.22"/>
+  <g filter="url(#shadow)">
+    <path d="M68 98 L92 68 L108 84 L128 76 L148 84 L164 68 L188 98 L188 218 Q188 232 128 232 Q68 232 68 218 Z"
+          fill="url(#cloth)"/>
+    <path d="M108 84 L128 76 L148 84 L140 108 L128 114 L116 108 Z" fill="url(#clothLight)"/>
+    <path d="M92 68 L108 84 L116 108 L92 118 Z" fill="#6d28d9" opacity="0.45"/>
+    <path d="M164 68 L148 84 L140 108 L164 118 Z" fill="#6d28d9" opacity="0.45"/>
+    <path d="M116 108 L128 114 L140 108 L140 218 Q140 226 128 226 Q116 226 116 218 Z" fill="#5b21b6" opacity="0.4"/>
+    <rect x="118" y="130" width="20" height="28" rx="3" fill="#c4b5fd" opacity="0.5"/>
+    <line x1="128" y1="130" x2="128" y2="158" stroke="#ddd6fe" stroke-width="2"/>
+  </g>
+</svg>

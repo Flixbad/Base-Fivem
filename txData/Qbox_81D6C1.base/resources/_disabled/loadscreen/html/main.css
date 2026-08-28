@@ -1,0 +1,219 @@
+:root {
+    --border-round: 0.35rem;
+    --hover-transition: opacity 0.1s;
+    --finishing-transition: opacity 0.5s;
+}
+
+* {
+    margin: 0 0;
+    padding: 0 0;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+
+    background-color: var(--background);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    font-family: var(--font-family);
+    user-select: none;
+    color: var(--text-color);
+
+    transition: background-image 2s;
+}
+
+h1 {
+    font-weight: 300;
+}
+
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 400;
+}
+
+progress {
+    appearance: none;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+::-webkit-progress-bar {
+    background: var(--shadow-color);
+}
+
+::-webkit-progress-value {
+    background: var(--primary-color);
+}
+
+input[type='range'] {
+    appearance: none;
+
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: transparent;
+    height: 1rem;
+}
+
+input[type='range']:focus {
+    outline: none;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+    appearance: none;
+
+    height: 0.35rem;
+
+    border-radius: 1rem;
+    background: linear-gradient(to right, white, white), var(--secondary-color);
+    background-size: var(--value, 0%) 100%;
+    background-repeat: no-repeat;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    appearance: none;
+
+    width: 1rem;
+    height: 1rem;
+    transform: translateY(calc(0.35rem / 2 - 50%));
+
+    border: 2px solid white;
+    border-radius: 1rem;
+    background-color: black;
+}
+
+.hover {
+    opacity: 0.75;
+    transition: var(--hover-transition);
+}
+
+.hover:hover {
+    opacity: 1;
+}
+
+#error-wrapper {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translate(-50%);
+    max-width: calc(100% - 3.5rem);
+    max-height: calc(100% - 3.5rem);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    background-color: rgba(0, 0, 0, 0.9);
+    color: rgb(250, 250, 250);
+    padding: 0.75rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-round);
+    z-index: 1;
+}
+
+#error-wrapper > header {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+#error-log {
+    min-width: calc(100% - 1rem);
+    max-width: calc(100% - 1rem);
+    height: calc(100% - 1rem);
+
+    background-color: rgb(15, 15, 15);
+    color: rgb(225, 225, 225);
+    padding: 0.5rem;
+    border: none;
+    border-radius: var(--border-round);
+}
+
+#error-log:focus {
+    outline: none;
+}
+
+#background-video,
+#background-embed {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+#overlay {
+    width: 100vw;
+    height: 100vh;
+}
+
+#logo {
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+}
+
+#audio-controls {
+    position: fixed;
+    left: 50%;
+    bottom: 1.75rem;
+    transform: translateX(-50%);
+    overflow: hidden;
+    width: 2.5rem;
+
+    background-color: var(--shadow-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-round);
+
+    transition: 0.25s ease-out;
+}
+
+#audio-controls:hover {
+    width: 8rem;
+}
+
+#audio-mute {
+    appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+    padding: 0.5rem;
+
+    border: none;
+    border-radius: var(--border-round);
+}
+
+#audio-mute:hover {
+    cursor: pointer;
+}
+
+#audio-mute:focus {
+    outline: none;
+}
+
+#audio-volume {
+    position: absolute;
+    left: 2.75rem;
+    width: 4.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#loadscreen-wrapper,
+#finishing-wrapper {
+    transition: var(--finishing-transition);
+}
+
+#loadscreen-wrapper,
+#finishing-wrapper,
+#overlay {
+    pointer-events: none;
+}

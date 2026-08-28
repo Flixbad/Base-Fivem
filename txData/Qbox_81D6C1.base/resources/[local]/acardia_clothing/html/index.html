@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+<div id="root" class="hidden">
+  <aside class="cat-sidebar" id="catSidebar"></aside>
+
+  <main class="shop-panel">
+    <header class="shop-header">
+      <div class="shop-header-left">
+        <div class="shop-cat-icon" id="headerIcon"></div>
+        <div>
+          <h1 id="catTitle">T-Shirt</h1>
+          <p id="catCount">0 articles</p>
+        </div>
+      </div>
+      <button class="btn-close" id="btnClose">✕</button>
+    </header>
+
+    <div class="shop-toolbar">
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input type="text" id="searchInput" placeholder="N° d'article"/>
+      </div>
+      <div class="toolbar-actions">
+        <button class="tb-btn" id="btnSaveOutfit" title="Enregistrer tenue">💾</button>
+        <button class="tb-btn" id="btnOutfits" title="Mes tenues">👤</button>
+        <button class="tb-btn" id="btnFavFilter" title="Favoris">♥</button>
+        <button class="tb-btn" id="btnReset" title="Reinitialiser">🗑</button>
+      </div>
+    </div>
+
+    <section class="items-grid" id="itemsGrid"></section>
+
+    <footer class="shop-footer">
+      <button class="foot-btn hanger" id="btnHanger">
+        <span class="foot-icon">🧥</span>
+        <span class="foot-label">Ceintre</span>
+        <span class="foot-price" id="hangerPrice">$5</span>
+      </button>
+      <button class="foot-btn primary" id="btnBuySingle">
+        <span class="foot-main">Achat unique</span>
+        <span class="foot-sub" id="singlePriceLabel">$100</span>
+      </button>
+      <button class="foot-btn create" id="btnBuyOutfit">
+        <span class="foot-main">Tenue complete</span>
+        <span class="foot-sub" id="outfitPriceLabel">Aucun changement</span>
+      </button>
+    </footer>
+
+    <div class="pay-overlay hidden" id="payModal">
+      <div class="pay-box">
+        <header class="pay-header">
+          <div>
+            <h3 id="payTitle">Paiement</h3>
+            <p class="pay-amount" id="payAmount">$0</p>
+          </div>
+          <button type="button" class="btn-close" id="payClose">✕</button>
+        </header>
+        <div class="pay-body" id="payBody"></div>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal hidden" id="outfitModal">
+    <div class="modal-box">
+      <h2>Mes tenues</h2>
+      <div id="outfitList" class="outfit-list"></div>
+      <button class="modal-close" id="closeOutfits">Fermer</button>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="nameModal">
+    <div class="modal-box">
+      <h2 id="nameModalTitle">Nom de la tenue</h2>
+      <input type="text" id="outfitName" placeholder="Ma tenue..." maxlength="32"/>
+      <div class="modal-actions">
+        <button class="foot-btn primary" id="confirmOutfit">Confirmer</button>
+        <button class="modal-close" id="cancelOutfit">Annuler</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast hidden" id="toast"></div>
+
+  <!-- Zone rotation personnage (partie droite de l'écran) -->
+  <div id="rotateZone" class="rotate-zone hidden">
+    <p class="rotate-hint">Glisser pour tourner · Q / D</p>
+    <div class="rotate-presets">
+      <button type="button" class="rot-btn" data-view="left" title="Profil gauche">◀</button>
+      <button type="button" class="rot-btn" data-view="front" title="Face">Face</button>
+      <button type="button" class="rot-btn" data-view="back" title="Dos">Dos</button>
+      <button type="button" class="rot-btn" data-view="right" title="Profil droit">▶</button>
+    </div>
+    <div class="rotate-arrows">
+      <button type="button" class="rot-btn wide" id="rotLeft">⟲ Tourner</button>
+      <button type="button" class="rot-btn wide" id="rotRight">Tourner ⟳</button>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

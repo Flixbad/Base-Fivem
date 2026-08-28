@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acardia Appearance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      html, body, #root {
+        background: transparent !important;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: "Oswald", "Segoe UI", sans-serif !important;
+      }
+
+      /* Accent Acardia RP V2 sur les inputs range natifs */
+      input[type="range"] {
+        accent-color: #8a2be2 !important;
+      }
+
+      /* Soft cinematic vignette behind UI only on edges */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        background:
+          radial-gradient(ellipse at 25% 50%, transparent 35%, rgba(0,0,0,0.25) 100%),
+          linear-gradient(90deg, rgba(0,0,0,0.15), transparent 30%, transparent 70%, rgba(0,0,0,0.35));
+      }
+
+      #root {
+        position: relative;
+        z-index: 1;
+      }
+    </style>
+  <script type="module" crossorigin src="./assets/index.b8e72b46.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+</html>

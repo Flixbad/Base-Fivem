@@ -1,0 +1,20 @@
+{
+    "error": {
+        "not_enough_money": "Du hast nicht genug Geld...",
+        "invalid_type": "Das ist kein gültiger Ausweis..."
+    },
+    "success": {
+        "item_recieved": "Du hast deinen Gegenstand erhalten: ",
+        "new_job": "Herzlichen Glückwunsch zu deinem neuen Job!"
+    },
+    "info": {
+        "cityhall": "Rathaus",
+        "open_cityhall": "[E] Rathaus öffnen",
+        "target_open_cityhall": "Rathaus öffnen",
+        "identity": "Identität",
+        "employment": "Beschäftigung",
+        "obtain_license_identity": "Erhalte deine Lizenzen",
+        "select_job": "Wähle einen neuen Job",
+        "price": "Preis: %s"
+    }
+}

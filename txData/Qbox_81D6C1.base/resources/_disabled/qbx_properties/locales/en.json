@@ -1,0 +1,72 @@
+{
+    "notify": {
+        "no_access": "No access.",
+        "someone_at_door": "Someone is at your door!",
+        "keyholder": " has been added as a keyholder.",
+        "added_as_keyholder": "You have been added as a keyholder.",
+        "removed_as_keyholder": " has been removed as a keyholder."
+    },
+    "alert": {
+        "give_keys": "Give keys to this person?",
+        "apartment_selection": "Apartment Selection",
+        "are_you_sure": "Are you sure you want to get %s?",
+        "want_remove_keys": "Do you want to remove keys from this person?",
+        "want_let_person_in": "Want to let this person in?",
+        "property_name": "Property Name",
+        "property_name_description": "A simple descriptive name of the property",
+        "price": "Price",
+        "price_description": "The purchasing price or the price deducted for rent",
+        "rent_interval": "Rent interval",
+        "rent_interval_description": "The interval in which the rent will be deducted in hours (makes the property rentable instead of purchasable)",
+        "add_garage": "Add Garage"
+    },
+    "menu": {
+        "add_keyholder": "Add Keyholder",
+        "people_inside": "People Inside",
+        "keyholders": "Keyholders",
+        "doorbell_ringers": "Doorbell Ringers",
+        "manage_keys": "Manage Keys",
+        "doorbell": "Doorbell",
+        "manage_property": "Manage Property",
+        "enter": "Enter",
+        "ring_doorbell": "Ring Doorbell",
+        "properties": "Properties",
+        "retrieve_properties": "Retrieve Owned Properties",
+        "show_owned_properties": "Only show properties you own",
+        "interior_preview": "Interior Preview",
+        "start_decorating": "Start Decorating",
+        "decorating_categories": "Categories"
+    },
+    "instructButtons": {
+        "up": "Up",
+        "down": "Down",
+        "submit": "Submit"
+    },
+    "keyMappings": {
+        "gizmo_translation": "Sets mode to translation",
+        "gizmo_rotation": "Sets mode to rotation",
+        "gizmo_select": "Selects currently highlighted",
+        "gizmo_local": "Sets gizmo local to the entity"
+    },
+    "drawtext": {
+        "stash": "[E] - Stash",
+        "exit": "[E] - Exit | [G] - Manage",
+        "clothing": "[E] - Clothing | [G] - Outfits",
+        "logout": "[E] - Logout",
+        "view_property": "[E] - View Property"
+    },
+    "logs": {
+        "create_property": "Attempting to create a property.",
+        "property_created": "Property %s created successfully.",
+        "enter_property": "Player %s entered property %s.",
+        "exit_property": "Player %s exited property id %s.",
+        "apartment_selected": "Player %s selected apartment %s %s.",
+        "added_keyholder": "Added %s as a keyholder to the property %s.",
+        "removed_keyholder": "Removed %s as a keyholder to the property %s.",
+        "rent_property": "Player %s rented property %s.",
+        "buy_property": "Player %s bought property %s.",
+        "stop_renting": "Player %s stopped renting property %s.",
+        "add_decoration": "Player %s added decoration %s to property %s.",
+        "remove_decoration": "Player %s removed decoration %s from property %s."
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "general": {
+    "serverName": "Acardia RP V2",
+    "language": "fr"
+  },
+  "server": {
+    "dataPath": "C:/Users/samyd/Desktop/GTA RP/Base Fivem/txData/Qbox_81D6C1.base/"
+  }
+}

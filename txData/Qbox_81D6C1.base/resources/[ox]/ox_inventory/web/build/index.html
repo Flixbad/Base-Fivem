@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <title>Ox Inventory</title>
+    <script type="module" crossorigin src="./assets/index.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index.css">
+  </head>
+  <body>
+    <div id="root"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ACARDIA BANK — TERMINAL DE PAIEMENT PREMIUM
+     ═══════════════════════════════════════════════════════════════ -->
+<style>
+@keyframes abp-fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes abp-slideUp{from{opacity:0;transform:translateY(30px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes abp-shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes abp-pulse{0%,100%{box-shadow:0 0 0 0 rgba(168,85,247,.4)}50%{box-shadow:0 0 20px 4px rgba(168,85,247,.15)}}
+@keyframes abp-cardFloat{0%,100%{transform:translateY(0) rotateX(0)}50%{transform:translateY(-4px) rotateX(1deg)}}
+@keyframes abp-dotPop{0%{transform:scale(1)}50%{transform:scale(1.3)}100%{transform:scale(1)}}
+@keyframes abp-success{0%{transform:scale(.8);opacity:0}50%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+@keyframes abp-ripple{to{transform:scale(4);opacity:0}}
+
+#acardiaTPE{display:none;position:fixed;inset:0;z-index:999999;font-family:'Inter',system-ui,sans-serif;color:#f0ecff;-webkit-font-smoothing:antialiased}
+#acardiaTPE.open{display:flex;align-items:center;justify-content:center;animation:abp-fadeIn .2s ease}
+
+.tpe-backdrop{position:absolute;inset:0;background:transparent}
+
+.tpe-terminal{
+  position:relative;width:460px;max-height:88vh;
+  border-radius:24px;overflow:hidden;
+  background:linear-gradient(170deg,#0d0618 0%,#150a2e 40%,#1a0d35 100%);
+  border:1px solid rgba(168,85,247,.18);
+  box-shadow:
+    0 0 0 1px rgba(168,85,247,.06),
+    0 4px 16px rgba(0,0,0,.3),
+    0 16px 48px rgba(0,0,0,.4),
+    inset 0 1px 0 rgba(255,255,255,.04);
+  animation:abp-slideUp .35s cubic-bezier(.16,1,.3,1);
+}
+
+.tpe-glow{
+  position:absolute;top:-60%;left:50%;transform:translateX(-50%);
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(168,85,247,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+.tpe-header{
+  padding:24px 28px 0;display:flex;align-items:center;gap:12px;position:relative;z-index:1;
+}
+.tpe-logo{
+  width:40px;height:40px;border-radius:12px;
+  background:linear-gradient(135deg,#7c3aed,#a855f7,#c084fc);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:18px;color:#fff;
+  box-shadow:0 4px 14px rgba(168,85,247,.3);
+  flex-shrink:0;
+}
+.tpe-brand{flex:1}
+.tpe-brand-name{font-size:16px;font-weight:800;letter-spacing:.5px;
+  background:linear-gradient(135deg,#e0d4ff,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.tpe-brand-sub{font-size:10px;color:rgba(240,236,255,.4);font-weight:500;letter-spacing:1.5px;text-transform:uppercase;margin-top:1px}
+.tpe-close{
+  width:36px;height:36px;border-radius:10px;border:1px solid rgba(255,255,255,.06);
+  background:rgba(255,255,255,.03);color:rgba(240,236,255,.4);
+  font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.tpe-close:hover{background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.2);color:#ef4444}
+
+.tpe-divider{
+  height:1px;margin:16px 28px 0;
+  background:linear-gradient(90deg,transparent,rgba(168,85,247,.15),transparent);
+}
+
+.tpe-body{padding:20px 28px 28px;position:relative;z-index:1;overflow-y:auto;max-height:calc(88vh - 100px)}
+
+/* ── Step indicator ── */
+.tpe-steps{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:20px}
+.tpe-step-dot{width:8px;height:8px;border-radius:50%;background:rgba(168,85,247,.2);transition:all .3s}
+.tpe-step-dot.active{background:#a855f7;width:24px;border-radius:4px}
+.tpe-step-dot.done{background:#22c55e}
+
+/* ── Method selection ── */
+.tpe-methods{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tpe-method{
+  padding:28px 16px;border-radius:16px;text-align:center;cursor:pointer;
+  background:rgba(255,255,255,.02);
+  border:1.5px solid rgba(168,85,247,.12);
+  transition:all .25s cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:hidden;
+}
+.tpe-method::before{
+  content:'';position:absolute;inset:0;border-radius:16px;
+  background:linear-gradient(135deg,rgba(168,85,247,.06),transparent);
+  opacity:0;transition:opacity .25s;
+}
+.tpe-method:hover{
+  border-color:rgba(168,85,247,.35);transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(168,85,247,.1);
+}
+.tpe-method:hover::before{opacity:1}
+.tpe-method-icon{font-size:36px;margin-bottom:12px;position:relative;z-index:1}
+.tpe-method-title{font-size:15px;font-weight:700;margin-bottom:4px;position:relative;z-index:1}
+.tpe-method-desc{font-size:11px;color:rgba(240,236,255,.45);font-weight:400;position:relative;z-index:1}
+
+/* ── Card selection ── */
+.tpe-section-title{font-size:13px;font-weight:600;color:rgba(240,236,255,.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;text-align:center}
+.tpe-cards{display:flex;flex-direction:column;gap:14px}
+
+.tpe-card-wrap{
+  cursor:pointer;border-radius:18px;
+  border:2px solid transparent;
+  transition:all .3s cubic-bezier(.16,1,.3,1);
+  position:relative;
+}
+.tpe-card-wrap:hover{border-color:rgba(168,85,247,.3);transform:scale(1.015)}
+.tpe-card-wrap.selected{
+  border-color:#a855f7;
+  box-shadow:0 0 24px rgba(168,85,247,.2),0 0 48px rgba(168,85,247,.08);
+}
+
+.tpe-card{
+  height:175px;border-radius:16px;padding:22px;
+  background:linear-gradient(145deg,#1a0a30 0%,#2d1050 50%,#1a0a30 100%);
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;overflow:hidden;
+  animation:abp-cardFloat 4s ease-in-out infinite;
+}
+.tpe-card::before{
+  content:'';position:absolute;top:-50%;right:-30%;width:250px;height:250px;
+  background:radial-gradient(circle,rgba(168,85,247,.12),transparent 70%);
+  pointer-events:none;
+}
+.tpe-card::after{
+  content:'';position:absolute;bottom:-30%;left:-20%;width:200px;height:200px;
+  background:radial-gradient(circle,rgba(124,58,237,.08),transparent 70%);
+  pointer-events:none;
+}
+
+.tpe-card-top{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:1}
+.tpe-card-brand{font-size:11px;font-weight:800;letter-spacing:2.5px;color:#c084fc;text-transform:uppercase}
+.tpe-card-nfc{width:20px;height:20px;opacity:.4}
+.tpe-card-chip{
+  width:40px;height:28px;border-radius:6px;margin-top:6px;
+  background:linear-gradient(135deg,#f5d06f 0%,#d4a84b 50%,#f5d06f 100%);
+  background-size:200% 100%;animation:abp-shimmer 3s linear infinite;
+  position:relative;z-index:1;
+}
+.tpe-card-chip::after{
+  content:'';position:absolute;top:4px;left:4px;right:4px;bottom:4px;
+  border-radius:3px;border:1px solid rgba(0,0,0,.15);
+}
+.tpe-card-number{
+  font-size:17px;font-weight:600;letter-spacing:3px;font-family:'Courier New',monospace;
+  position:relative;z-index:1;text-shadow:0 1px 2px rgba(0,0,0,.3);
+}
+.tpe-card-bottom{display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:1}
+.tpe-card-holder{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:rgba(240,236,255,.8)}
+.tpe-card-badge{
+  font-size:8px;padding:3px 10px;border-radius:20px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;
+  background:linear-gradient(135deg,rgba(34,197,94,.2),rgba(34,197,94,.1));
+  color:#4ade80;border:1px solid rgba(34,197,94,.2);
+}
+
+/* ── Contactless visual ── */
+.tpe-contactless{
+  text-align:center;padding:24px 0 8px;
+}
+.tpe-contactless-icon{
+  width:64px;height:64px;border-radius:50%;margin:0 auto 12px;
+  background:linear-gradient(135deg,rgba(168,85,247,.1),rgba(168,85,247,.05));
+  border:1px solid rgba(168,85,247,.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;animation:abp-pulse 2s ease-in-out infinite;
+}
+.tpe-contactless-text{font-size:12px;color:rgba(240,236,255,.4);font-weight:500}
+
+/* ── PIN pad ── */
+.tpe-pin-section{display:flex;flex-direction:column;align-items:center;gap:20px}
+
+.tpe-pin-card-mini{
+  width:100%;border-radius:14px;padding:14px 18px;
+  background:linear-gradient(135deg,rgba(168,85,247,.08),rgba(168,85,247,.03));
+  border:1px solid rgba(168,85,247,.15);
+  display:flex;align-items:center;gap:14px;
+}
+.tpe-pin-card-chip{
+  width:28px;height:20px;border-radius:4px;flex-shrink:0;
+  background:linear-gradient(135deg,#f5d06f,#d4a84b);
+}
+.tpe-pin-card-info{flex:1;min-width:0}
+.tpe-pin-card-name{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.tpe-pin-card-num{font-size:11px;color:rgba(240,236,255,.4);font-family:monospace;letter-spacing:1px;margin-top:2px}
+
+.tpe-pin-label{font-size:13px;font-weight:600;color:rgba(240,236,255,.55);letter-spacing:.5px}
+
+.tpe-pin-dots{display:flex;gap:16px}
+.tpe-pin-dot{
+  width:18px;height:18px;border-radius:50%;
+  border:2px solid rgba(168,85,247,.3);background:transparent;
+  transition:all .2s cubic-bezier(.16,1,.3,1);
+}
+.tpe-pin-dot.filled{
+  background:linear-gradient(135deg,#a855f7,#7c3aed);
+  border-color:#a855f7;
+  box-shadow:0 0 12px rgba(168,85,247,.4);
+  animation:abp-dotPop .2s ease;
+}
+.tpe-pin-dot.error{border-color:#ef4444;background:rgba(239,68,68,.3)}
+
+.tpe-numpad{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:260px;
+}
+.tpe-key{
+  padding:16px;border-radius:14px;font-size:20px;font-weight:600;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(168,85,247,.1);
+  color:#f0ecff;cursor:pointer;
+  transition:all .15s;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  user-select:none;-webkit-user-select:none;
+}
+.tpe-key:active{transform:scale(.95);background:rgba(168,85,247,.15)}
+.tpe-key:hover{background:rgba(168,85,247,.08);border-color:rgba(168,85,247,.2)}
+.tpe-key.tpe-key-clear{color:#ef4444;font-size:14px;font-weight:700;letter-spacing:.5px}
+.tpe-key.tpe-key-ok{
+  background:linear-gradient(135deg,rgba(168,85,247,.15),rgba(168,85,247,.08));
+  border-color:rgba(168,85,247,.3);color:#a855f7;font-size:14px;font-weight:800;letter-spacing:.5px;
+}
+.tpe-key.tpe-key-ok:hover{background:linear-gradient(135deg,rgba(168,85,247,.25),rgba(168,85,247,.15))}
+
+.tpe-key-ripple{
+  position:absolute;border-radius:50%;background:rgba(168,85,247,.2);
+  transform:scale(0);animation:abp-ripple .5s ease-out;pointer-events:none;
+}
+
+/* ── Success/Processing ── */
+.tpe-processing{text-align:center;padding:30px 0}
+.tpe-spinner{
+  width:48px;height:48px;border-radius:50%;margin:0 auto 16px;
+  border:3px solid rgba(168,85,247,.15);border-top-color:#a855f7;
+  animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tpe-processing-text{font-size:14px;color:rgba(240,236,255,.5);font-weight:500}
+
+.tpe-success{text-align:center;padding:24px 0;animation:abp-success .4s ease}
+.tpe-success-icon{
+  width:64px;height:64px;border-radius:50%;margin:0 auto 16px;
+  background:linear-gradient(135deg,rgba(34,197,94,.15),rgba(34,197,94,.08));
+  border:2px solid rgba(34,197,94,.3);
+  display:flex;align-items:center;justify-content:center;font-size:28px;
+}
+.tpe-success-text{font-size:16px;font-weight:700;color:#4ade80;margin-bottom:4px}
+.tpe-success-sub{font-size:12px;color:rgba(240,236,255,.4)}
+
+/* ── Scrollbar ── */
+.tpe-body::-webkit-scrollbar{width:4px}
+.tpe-body::-webkit-scrollbar-track{background:transparent}
+.tpe-body::-webkit-scrollbar-thumb{background:rgba(168,85,247,.2);border-radius:2px}
+</style>
+
+<div id="acardiaTPE">
+  <div class="tpe-backdrop" id="tpeBackdrop"></div>
+  <div class="tpe-terminal">
+    <div class="tpe-glow"></div>
+    <div class="tpe-header">
+      <div class="tpe-logo">A</div>
+      <div class="tpe-brand">
+        <div class="tpe-brand-name">Acardia Bank</div>
+        <div class="tpe-brand-sub">Terminal de paiement</div>
+      </div>
+      <button class="tpe-close" id="tpeClose">✕</button>
+    </div>
+    <div class="tpe-divider"></div>
+    <div class="tpe-body" id="tpeBody"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var tpe = document.getElementById('acardiaTPE');
+  var body = document.getElementById('tpeBody');
+  var S = {};
+
+  function open(cards){
+    S = {step:'method', cards:(cards||[]).filter(function(c){return !c.stolen&&!c.disabled}), sel:null, pin:''};
+    tpe.classList.add('open');
+    draw();
+  }
+
+  function close(method, cardId, pin){
+    tpe.classList.remove('open');
+    fetch('https://ox_inventory/acardiaPayResult',{
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({method:method||'cancel',cardId:cardId,pin:pin})
+    });
+  }
+
+  function stepDots(current){
+    var steps=['method','selectCard','pin'];
+    var idx=steps.indexOf(current);
+    return '<div class="tpe-steps">'+steps.map(function(_,i){
+      return '<div class="tpe-step-dot'+(i===idx?' active':i<idx?' done':'')+'"></div>';
+    }).join('')+'</div>';
+  }
+
+  function cardHTML(c, mini){
+    if(mini) return (
+      '<div class="tpe-pin-card-mini">'+
+        '<div class="tpe-pin-card-chip"></div>'+
+        '<div class="tpe-pin-card-info">'+
+          '<div class="tpe-pin-card-name">'+c.firstname+' '+c.lastname+'</div>'+
+          '<div class="tpe-pin-card-num">'+c.masked+'</div>'+
+        '</div>'+
+      '</div>'
+    );
+    return (
+      '<div class="tpe-card">'+
+        '<div class="tpe-card-top">'+
+          '<div><div class="tpe-card-brand">ACARDIA BANK</div><div class="tpe-card-chip"></div></div>'+
+          '<svg class="tpe-card-nfc" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><path d="M8.46 14.45l1.07-1.07c-.59-.59-.59-1.56 0-2.15l-1.07-1.07c-1.17 1.17-1.17 3.12 0 4.29z"/><path d="M6.34 16.57l1.07-1.07c-1.37-1.37-1.37-3.58 0-4.95L6.34 9.48c-1.95 1.95-1.95 5.14 0 7.09z"/><circle cx="14" cy="11.88" r="1.5"/></svg>'+
+        '</div>'+
+        '<div class="tpe-card-number">'+c.masked+'</div>'+
+        '<div class="tpe-card-bottom">'+
+          '<div class="tpe-card-holder">'+c.firstname+' '+c.lastname+'</div>'+
+          '<div class="tpe-card-badge">ACTIVE</div>'+
+        '</div>'+
+      '</div>'
+    );
+  }
+
+  function draw(){
+    var step=S.step;
+
+    if(step==='method'){
+      body.innerHTML=stepDots(step)+
+        '<div class="tpe-contactless">'+
+          '<div class="tpe-contactless-icon">💳</div>'+
+          '<div class="tpe-contactless-text">Choisissez votre mode de paiement</div>'+
+        '</div>'+
+        '<div class="tpe-methods">'+
+          '<div class="tpe-method" id="tpeCash">'+
+            '<div class="tpe-method-icon">💵</div>'+
+            '<div class="tpe-method-title">Espèces</div>'+
+            '<div class="tpe-method-desc">Payer en liquide</div>'+
+          '</div>'+
+          '<div class="tpe-method" id="tpeCard">'+
+            '<div class="tpe-method-icon">💳</div>'+
+            '<div class="tpe-method-title">Carte bancaire</div>'+
+            '<div class="tpe-method-desc">Payer avec Acardia</div>'+
+          '</div>'+
+        '</div>';
+      document.getElementById('tpeCash').onclick=function(){close('cash')};
+      document.getElementById('tpeCard').onclick=function(){
+        if(!S.cards.length)return;
+        if(S.cards.length===1){S.sel=S.cards[0];S.step='pin';S.pin='';draw();return;}
+        S.step='selectCard';draw();
+      };
+    }
+
+    else if(step==='selectCard'){
+      var html=stepDots(step)+'<div class="tpe-section-title">Sélectionnez votre carte</div><div class="tpe-cards" id="tpeCards"></div>';
+      body.innerHTML=html;
+      var list=document.getElementById('tpeCards');
+      S.cards.forEach(function(c,i){
+        var wrap=document.createElement('div');
+        wrap.className='tpe-card-wrap';
+        wrap.innerHTML=cardHTML(c);
+        wrap.onclick=function(){S.sel=c;S.step='pin';S.pin='';draw()};
+        list.appendChild(wrap);
+      });
+    }
+
+    else if(step==='pin'){
+      var c=S.sel;
+      S.pin='';
+      body.innerHTML=stepDots(step)+
+        cardHTML(c,true)+
+        '<div class="tpe-pin-section" style="margin-top:20px">'+
+          '<div class="tpe-pin-label">Entrez votre code PIN</div>'+
+          '<div class="tpe-pin-dots" id="tpeDots">'+
+            '<div class="tpe-pin-dot"></div><div class="tpe-pin-dot"></div><div class="tpe-pin-dot"></div><div class="tpe-pin-dot"></div>'+
+          '</div>'+
+          '<div class="tpe-numpad" id="tpePad"></div>'+
+        '</div>';
+
+      var dots=document.querySelectorAll('#tpeDots .tpe-pin-dot');
+      var pad=document.getElementById('tpePad');
+
+      function upd(){dots.forEach(function(d,i){
+        d.classList.toggle('filled',i<S.pin.length);
+        d.classList.remove('error');
+      })}
+
+      function ripple(btn,e){
+        var r=document.createElement('span');r.className='tpe-key-ripple';
+        var rect=btn.getBoundingClientRect();
+        var sz=Math.max(rect.width,rect.height);
+        r.style.width=r.style.height=sz+'px';
+        r.style.left=(e.clientX-rect.left-sz/2)+'px';
+        r.style.top=(e.clientY-rect.top-sz/2)+'px';
+        btn.appendChild(r);setTimeout(function(){r.remove()},500);
+      }
+
+      function addK(lbl,cls){
+        var btn=document.createElement('button');
+        btn.className='tpe-key'+(cls?' '+cls:'');
+        btn.textContent=lbl;
+        btn.addEventListener('click',function(e){
+          ripple(btn,e);
+          if(lbl==='✕'){S.pin='';upd();return}
+          if(lbl==='OK'){
+            if(S.pin.length===4) close('card',S.sel.cardId,S.pin);
+            return;
+          }
+          if(S.pin.length<4){S.pin+=lbl;upd()}
+        });
+        pad.appendChild(btn);
+      }
+      for(var i=1;i<=9;i++)addK(i.toString());
+      addK('✕','tpe-key-clear');addK('0');addK('OK','tpe-key-ok');
+    }
+  }
+
+  document.getElementById('tpeClose').onclick=function(){close('cancel')};
+  document.getElementById('tpeBackdrop').onclick=function(){close('cancel')};
+
+  window.addEventListener('message',function(e){
+    if(e.data&&e.data.action==='acardiaPayOpen') open(e.data.cards);
+  });
+})();
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,31 @@
+{
+    "error": {
+        "no_space": "Başka bir araç bu alanı işgal etti.",
+        "no_access": "Bu garaja erişiminiz yok",
+        "no_vehicles": "Şu anda bu konumda aracınız yok...",
+        "not_impound": "Aracınız çekilmemiş",
+        "not_owned": "Bu aracın sahibi değilsiniz",
+        "not_correct_type": "Bu tür aracı buraya park edemezsiniz",
+        "not_enough": "Yeterli paran yok",
+        "vehicle_occupied": "Aracı park etmek için, içinde sadece sürücü olmalıdır",
+        "in_vehicle": "Zaten bir araçtasınız...",
+        "spawn_in_progress": "Lütfen aracının teslim edilmesini bekle..."
+    },
+    "success": {
+        "vehicle_parked": "Araç park edildi"
+    },
+    "menu": {
+        "information": "Bilgi",
+        "description": "Adı: %s\nPlaka: %s\nÇekme Ücreti: $%s",
+        "body": "Gövde",
+        "engine": "Motor",
+        "fuel": "Yakıt",
+        "take_out": "Aracı Çıkar",
+        "veh_impounded": "Aracınız polis tarafından çekildi"
+    },
+    "info": {
+        "car_e": "E - Garajı Aç",
+        "park_e": "E - Aracı Park Et",
+        "impound_e": "E - Çekilen Araçlar"
+    }
+}

@@ -1,0 +1,46 @@
+{
+   "error": {
+      "canceled": "Cancelado..",
+      "cruise_control_disabled": "Controlo de cruzeiro desativado",
+      "cruise_control_unavailable": "Controlo de cruzeiro indisponível",
+      "deleted_recording": "Gravação Apagada!",
+      "later_aligator": "Até logo!",
+      "stress_gain": "A Sentir Mais Stress!",
+      "no_vehicle_nearby": "Nenhum veículo nas proximidades para virar.",
+      "is_handcuffed": "Estás algemado.",
+      "is_fastened": "Tens o cinto de segurança posto.",
+      "vehicle_radio_off": "Rádio do veículo desligado"
+   },
+   "success": {
+      "cruise_control_enabled": "Controlo de cruzeiro ativado",
+      "started_recording": "Gravação Iniciada!",
+      "stopped_recording": "Gravação Parada!",
+      "saved_recording": "Gravação Guardada!",
+      "stress_relief": "A Sentires-te Mais Relaxado!",
+      "flipped_car": "Veículo Virado com Sucesso!",
+      "vehicle_radio_on": "Rádio do veículo ligado"
+   },
+   "progress": {
+      "eating": "A Comer..",
+      "drinking": "A Beber..",
+      "drinking_liquor": "A Beber álcool..",
+      "quick_sniff": "Cheirada rápida..",
+      "smoking_crack": "A Fumar crack..",
+      "popping_pills": "A Tomar comprimidos..",
+      "healing": "A Curar..",
+      "smoking_meth": "A Fumar metanfetamina..",
+      "lighting_joint": "A Acender um charro..",
+      "flipping_car": "A Virar Veículo..."
+   },
+   "info": {
+      "minutes": "minutos",
+      "seconds": "segundos..",
+      "shuffleSeat": "Trocar de assento",
+      "teleport_level_select": "Go To Level #%s",
+      "teleport_current_level_indication": "(You're Here)"
+   },
+   "actions": {
+      "push_vehicle": "Pressiona [~g~SHIFT~w~] e [~g~E~w~] para empurrar o veículo até soltar [~g~SHIFT~w~]",
+      "toggle_cruise_control": "Alterar Controlo de Cruzeiro"
+   }
+}

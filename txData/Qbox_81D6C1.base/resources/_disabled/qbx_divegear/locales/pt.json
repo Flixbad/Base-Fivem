@@ -1,0 +1,16 @@
+{
+    "error": {
+        "not_standing_up": "Precisas de estar num terreno sólido para colocar isto...",
+        "need_otube": "Precisas de reabastecer o teu oxigénio! Obtêm um abastecimento de ar de substituição!",
+        "underwater": "Não podes fazer isto debaixo de água..."
+    },
+    "success": {
+        "took_out": "Tiraste o teu equipamento!",
+        "tube_filled": "Reabasteceste com sucesso o teu tanque de ar!"
+    },
+    "info": {
+        "put_suit": "A vestir o teu fato de mergulho...",
+        "pullout_suit": "A tirar o teu fato de mergulho...",
+        "filling_air": "A encher o ar..."
+    }
+}

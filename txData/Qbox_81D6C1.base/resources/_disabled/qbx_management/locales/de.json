@@ -1,0 +1,48 @@
+{
+    "menu": {
+        "grade": "Rang: ",
+        "expel_gang": "Gangmitglied ausschließen",
+        "fire_employee": "Mitarbeiter entlassen",
+        "manage_gang": "Gangmitglieder verwalten",
+        "manage_employees": "Mitarbeiter verwalten",
+        "citizen_id": "Bürger ID: ",
+        "id": "ID: ",
+        "hire_gang": "In der Nähe befindliche Zivilisten rekrutieren",
+        "hire_members": "Gangmitglieder rekrutieren",
+        "hire_civilians": "In der Nähe befindliche Zivilisten einstellen",
+        "hire_employees": "Mitarbeiter einstellen",
+        "check_gang": "Gangliste überprüfen",
+        "check_employee": "Mitarbeiterliste überprüfen",
+        "gang_menu": "Gang-Menü",
+        "boss_menu": "Boss-Menü",
+        "gang_management": "[E] - Gangverwaltung öffnen",
+        "boss_management": "[E] - Boss-Verwaltung öffnen",
+        "hours_in_days": "Arbeitsstunden in 30 Tagen",
+        "last_checkin": "Letzter Check-in",
+        "employee_status": "Mitarbeiterstatus",
+        "on_duty": "Im Dienst",
+        "off_duty": "Außer Dienst"
+    },
+    "error": {
+        "cant_promote": "Du kannst den Rang einer Person nicht ändern, deren Rang gleich oder höher ist als deiner...",
+        "cant_promote_self": "Du kannst deinen eigenen Rang nicht ändern...",
+        "not_around": "Diese Person ist nicht in der Stadt...",
+        "grade_not_exist": "Dieser Rang scheint nicht zu existieren...",
+        "couldnt_hire": "Du konntest diese Person nicht einstellen...",
+        "kick_yourself": "Du kannst dich nicht selbst ausschließen...",
+        "fire_yourself": "Du kannst dich nicht selbst entlassen...",
+        "fire_boss": "Du kannst niemanden mit einem höheren Rang entlassen...",
+        "you_gang_fired": "Du wurdest aus %s ausgeschlossen!",
+        "you_job_fired": "Du wurdest aus %s entlassen! Viel Glück!",
+        "unable_fire": "Du kannst diese Person nicht entlassen...",
+        "person_doesnt_exist": "Diese Person scheint nicht zu existieren...",
+        "gang_fired": "Gangmitglied ausgeschlossen!",
+        "job_fired": "Mitarbeiter entlassen!"
+    },
+    "success": {
+        "promoted": "Erfolgreich befördert!",
+        "promoted_to": "Du wurdest befördert zum ",
+        "hired_to": "Du wurdest eingestellt bei ",
+        "hired_into": "Du hast %s in %s eingestellt"
+    }
+}

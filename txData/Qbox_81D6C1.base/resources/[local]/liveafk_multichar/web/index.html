@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acardia RP V2 — Identite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="hidden">
+    <div class="fx-grain"></div>
+    <div class="fx-vignette"></div>
+    <div class="fx-flare"></div>
+
+    <header class="top">
+      <div class="brand">
+        <span class="crown">♛</span>
+        <div>
+          <p class="brand__live"><span id="brandLive">ACARDIA</span> <span id="brandAfk">RP V2</span></p>
+          <p class="brand__sub" id="brandServer">Acardia RP V2</p>
+        </div>
+      </div>
+      <p class="tagline" id="tagline">Bienvenue dans l histoire</p>
+    </header>
+
+    <!-- SELECT -->
+    <section id="view-select" class="view active">
+      <div class="panel select-panel">
+        <div class="panel__head">
+          <h1>Choisis ton destin</h1>
+          <p>Selectionne un personnage ou cree une nouvelle identite.</p>
+        </div>
+        <div id="slots" class="slots"></div>
+        <button id="btnCreate" class="btn primary xl">+ Nouvelle identite</button>
+      </div>
+    </section>
+
+    <!-- CREATE -->
+    <section id="view-create" class="view">
+      <div class="panel create-panel">
+        <div class="panel__head">
+          <h1>Nouvelle identite</h1>
+          <div class="steps">
+            <span class="step active" data-step="1">01 Identite</span>
+            <span class="step" data-step="2">02 Details</span>
+            <span class="step" data-step="3">03 Confirmer</span>
+          </div>
+        </div>
+
+        <div class="form-stage active" data-stage="1">
+          <label>Prenom</label>
+          <input id="firstname" type="text" maxlength="40" placeholder="Alex" autocomplete="off" />
+          <label>Nom</label>
+          <input id="lastname" type="text" maxlength="40" placeholder="Moreau" autocomplete="off" />
+          <div class="row">
+            <button class="btn" data-nav="select">Retour</button>
+            <button class="btn primary" data-next="2">Continuer</button>
+          </div>
+        </div>
+
+        <div class="form-stage" data-stage="2">
+          <label>Genre</label>
+          <div class="gender">
+            <button type="button" class="gender__btn active" data-gender="0">Homme</button>
+            <button type="button" class="gender__btn" data-gender="1">Femme</button>
+          </div>
+          <label>Nationalite</label>
+          <select id="nationality"></select>
+          <label>Date de naissance</label>
+          <input id="birthdate" type="date" />
+          <div class="row">
+            <button class="btn" data-prev="1">Retour</button>
+            <button class="btn primary" data-next="3">Continuer</button>
+          </div>
+        </div>
+
+        <div class="form-stage" data-stage="3">
+          <div class="summary" id="summary"></div>
+          <p class="hint">Apres validation : personnalisation du visage, puis spawn obligatoire a Los Santos.</p>
+          <div class="row">
+            <button class="btn" data-prev="2">Retour</button>
+            <button class="btn primary" id="btnConfirm">Entrer dans Acardia</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bot">
+      <span>♛ ACARDIA RP V2</span>
+      <span id="slotMeta">0 / 0 slots</span>
+    </footer>
+
+    <!-- Confirm delete (pas de window.confirm = casse sous FiveM) -->
+    <div id="confirmModal" class="modal hidden">
+      <div class="modal__card">
+        <h2>Supprimer ce personnage ?</h2>
+        <p id="confirmText">Cette action est definitive.</p>
+        <div class="row">
+          <button type="button" class="btn" id="confirmCancel">Annuler</button>
+          <button type="button" class="btn danger" id="confirmOk">Supprimer</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

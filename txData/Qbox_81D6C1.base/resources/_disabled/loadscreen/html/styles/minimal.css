@@ -1,0 +1,63 @@
+@import url('../main.css');
+
+#loadscreen-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    overflow: hidden;
+}
+
+#loadscreen-wrapper > header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#loadscreen-wrapper > footer {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#secondary-bar-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+#loading-action {
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+#secondary-bar {
+    block-size: 0.75rem;
+    inline-size: 10rem;
+}
+
+#primary-bar {
+    block-size: 0.75rem;
+    inline-size: 20rem;
+}
+
+#finishing-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+}

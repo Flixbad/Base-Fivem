@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acardia RP V2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="stage" class="stage">
+    <!-- Reveal paint -->
+    <div class="paint-wipe" aria-hidden="true"></div>
+
+    <!-- Full-bleed banner -->
+    <div class="hero" aria-hidden="true">
+      <div class="hero__zoom">
+        <img class="hero__img" src="../assets/banner.png" alt="" />
+      </div>
+      <div class="hero__grain"></div>
+      <div class="hero__scan"></div>
+      <div class="hero__vignette"></div>
+      <div class="hero__flare"></div>
+    </div>
+
+    <!-- Floating crowns / shards -->
+    <canvas id="fx" class="fx" aria-hidden="true"></canvas>
+
+    <!-- Top bar -->
+    <header class="top">
+      <div class="brand">
+        <span class="brand__crown" aria-hidden="true">♛</span>
+        <div class="brand__text">
+          <span class="brand__live">ACARDIA</span>
+          <span class="brand__afk">RP V2</span>
+        </div>
+        <span class="brand__pulse"></span>
+      </div>
+      <div class="status">
+        <span class="status__dot"></span>
+        <span id="statusText">Connexion au serveur…</span>
+      </div>
+    </header>
+
+    <!-- Titre central -->
+    <div class="hero-title">
+      <h1 class="hero-title__main">Acardia RP V2</h1>
+      <p class="hero-title__sub">RP</p>
+    </div>
+
+    <!-- Bottom UI -->
+    <footer class="dock">
+      <div class="dock__left">
+        <p class="tip-label">ASTUCE</p>
+        <p id="tip" class="tip">Chargement en cours…</p>
+      </div>
+
+      <div class="dock__center">
+        <div class="progress">
+          <div class="progress__meta">
+            <span id="phase">INITIALISATION</span>
+            <span id="percent">0%</span>
+          </div>
+          <div class="progress__track">
+            <div id="bar" class="progress__fill"></div>
+            <div id="barGlow" class="progress__glow"></div>
+            <div class="progress__crown" id="crownTip">♛</div>
+          </div>
+          <div class="progress__ticks" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="dock__right">
+        <div class="music">
+          <button id="muteBtn" class="music__btn" type="button" title="Muet">♪</button>
+          <div class="eq" id="eq" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <input id="vol" class="music__vol" type="range" min="0" max="100" value="45" />
+        </div>
+        <p class="music__track">Arcadia — Acardia RP V2</p>
+      </div>
+    </footer>
+
+    <!-- Corner ornaments -->
+    <div class="corner corner--tl" aria-hidden="true"></div>
+    <div class="corner corner--br" aria-hidden="true"></div>
+  </div>
+
+  <audio id="bgm" src="../assets/Arcadia.mp3" preload="auto" loop></audio>
+  <script src="app.js"></script>
+</body>
+</html>

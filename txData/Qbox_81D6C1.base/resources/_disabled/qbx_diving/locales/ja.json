@@ -1,0 +1,21 @@
+{
+  "error": {
+    "canceled": "キャンセルしました",
+    "no_coral": "売るサンゴがありません..."
+  },
+  "info": {
+    "collecting_coral": "サンゴを採取中",
+    "diving_area": "ダイビングエリア",
+    "collect_coral": "サンゴを採取する",
+    "collect_coral_dt": "[E] - サンゴを採取する",
+    "checking_pockets": "売るサンゴがあるか確認中...",
+    "sell_coral": "サンゴを売る",
+    "sell_coral_dt": "[E] - サンゴを売る"
+  },
+  "logs": {
+    "tried_sell": "プレイヤーがサンゴを売ろうとしましたが所持していませんでした",
+    "sell_coral": "プレイヤーがサンゴを $%s で売却しました",
+    "collect_coral": "プレイヤーがインデックス %s のサンゴを採取しました",
+    "new_location": "新しいサンゴの場所をインデックス %s に設定しました"
+  }
+}

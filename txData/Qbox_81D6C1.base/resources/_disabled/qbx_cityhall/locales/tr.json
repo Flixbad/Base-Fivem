@@ -1,0 +1,20 @@
+{
+  "error": {
+    "not_enough_money": "Yeterli paran yok...",
+    "invalid_type": "Bu geçerli bir kimlik türü değil..."
+  },
+  "success": {
+    "item_recieved": "Eşyanı aldın ",
+    "new_job": "Yeni işinde tebrikler!"
+  },
+  "info": {
+    "cityhall": "Belediye",
+    "open_cityhall": "[E] Belediyeyi Aç",
+    "target_open_cityhall": "Belediyeyi Aç",
+    "identity": "Kimlik",
+    "employment": "Meslekler",
+    "obtain_license_identity": "Lisanslarını Al",
+    "select_job": "Yeni bir iş seç",
+    "price": "Fiyat: $%s"
+  }
+}

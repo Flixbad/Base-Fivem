@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acardia Export Tablet</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="hidden">
+    <div class="tablet">
+      <div class="bezel">
+        <header>
+          <div>
+            <p class="eyebrow">Acardia Export</p>
+            <h1 id="tablet-title">Tablette</h1>
+            <p id="player-meta" class="meta"></p>
+          </div>
+          <button id="btn-close" class="ghost">Fermer</button>
+        </header>
+
+        <section class="duty-card">
+          <div>
+            <p>Statut service</p>
+            <h2 id="duty-status">Hors service</h2>
+          </div>
+          <button id="btn-duty" class="primary">Prendre service</button>
+        </section>
+
+        <section id="balance-card" class="balance-card hidden">
+          <p>Solde societe</p>
+          <h2 id="balance">$0</h2>
+          <button id="btn-refresh" class="secondary">Actualiser</button>
+        </section>
+
+        <nav class="tabs">
+          <button class="tab active" data-tab="mytx">Mon suivi</button>
+          <button class="tab boss-only hidden" data-tab="employees">Employes</button>
+          <button class="tab boss-only hidden" data-tab="transactions">Societe</button>
+        </nav>
+
+        <section id="panel-mytx" class="panel">
+          <div id="my-transactions" class="list"></div>
+        </section>
+
+        <section id="panel-employees" class="panel hidden">
+          <button id="btn-hire" class="primary">Recruter joueur proche</button>
+          <div id="employees" class="list"></div>
+        </section>
+
+        <section id="panel-transactions" class="panel hidden">
+          <div id="transactions" class="list"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div id="craftProgress" class="craft-progress hidden" aria-hidden="true">
+    <svg class="craft-progress__ring" viewBox="0 0 120 120">
+      <circle class="craft-progress__track" cx="60" cy="60" r="52" />
+      <circle id="craftRing" class="craft-progress__fill" cx="60" cy="60" r="52" />
+    </svg>
+    <div class="craft-progress__center">
+      <strong id="craftSeconds">60</strong>
+      <span id="craftLabel">Fabrication</span>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

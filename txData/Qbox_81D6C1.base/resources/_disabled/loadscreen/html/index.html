@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="./js/index.js" type="module"></script>
+        <link id="style" rel="stylesheet" />
+        <link href="./dev.css" rel="stylesheet" />
+
+        <title>Loadscreen Preview</title>
+        <meta property="og:title" content="Loadscreen Preview" />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:description"
+            content="A preview of D4's loadscreen"
+        />
+        <meta name="theme-color" content="#4040FF" />
+    </head>
+
+    <body>
+        <div id="error-wrapper" style="display: none">
+            <header>
+                <img src="./assets/icons/report.svg" draggable="false" />
+                <h3>Error log</h3>
+            </header>
+            <p>Please copy & report the errors below.</p>
+            <textarea
+                id="error-log"
+                class="hover"
+                rows="10"
+                cols="50"
+                readonly
+            ></textarea>
+        </div>
+
+        <video
+            id="background-video"
+            autoplay
+            playsinline
+            disablepictureinpicture
+        ></video>
+        <audio id="background-audio" autoplay></audio>
+        <iframe
+            id="background-embed"
+            frameborder="0"
+            style="pointer-events: none"
+        ></iframe>
+
+        <div id="overlay"></div>
+
+        <div id="loadscreen-wrapper">
+            <header>
+                <img id="logo" draggable="false" style="display: none" />
+                <h1 id="server-message"></h1>
+            </header>
+            <footer>
+                <div id="secondary-bar-wrapper" style="display: none">
+                    <p id="loading-action"></p>
+                    <progress id="secondary-bar"></progress>
+                </div>
+                <progress id="primary-bar" max="1"></progress>
+            </footer>
+        </div>
+    </body>
+
+    <div id="finishing-wrapper" style="opacity: 0">
+        <h1 id="finishing-message"></h1>
+        <p id="log-line"></p>
+    </div>
+
+    <div id="audio-controls" class="hover" style="display: none">
+        <input
+            id="audio-volume"
+            class="hover"
+            min="0"
+            max="1"
+            step="0.01"
+            type="range"
+        />
+        <button id="audio-mute" class="hover">
+            <img
+                id="audio-mute-icon"
+                src="./assets/icons/volume_up.svg"
+                draggable="false"
+            />
+        </button>
+    </div>
+
+    <button id="dev-open" class="hover" style="display: none">Dev Menu</button>
+    <div id="dev-menu" class="hover" style="display: none">
+        <header>
+            <h2>Dev Menu</h2>
+            <button id="dev-close" class="hover">Close</button>
+        </header>
+
+        <button id="dev-back" class="hover" style="display: none">Back</button>
+
+        <main id="dev-options">
+            <div id="dev-variables">
+                <h3>Variables</h3>
+                <img src="./assets/icons/arrow_forward.svg" />
+            </div>
+
+            <div id="dev-config">
+                <h3>Config</h3>
+                <img src="./assets/icons/arrow_forward.svg" />
+            </div>
+
+            <div id="dev-events">
+                <h3>Events</h3>
+                <img src="./assets/icons/arrow_forward.svg" />
+            </div>
+
+            <div id="dev-custom-events">
+                <h3>Custom Events</h3>
+                <img src="./assets/icons/arrow_forward.svg" />
+            </div>
+        </main>
+
+        <div id="dev-cfg-wrapper">
+            <h4>Generated Cfg</h4>
+            <textarea
+                id="dev-generated-cfg"
+                class="hover"
+                readonly
+                wrap="off"
+            ></textarea>
+        </div>
+    </div>
+
+    <template id="dev-value-template">
+        <div class="dev-value">
+            <h4></h4>
+            <input class="hover" />
+        </div>
+    </template>
+
+    <template id="dev-event-template">
+        <div class="dev-event">
+            <h4></h4>
+            <button id="dev-on-log-line" class="hover">Emit</button>
+        </div>
+    </template>
+
+    <template id="dev-event-param-template">
+        <div>
+            <h5></h5>
+            <input class="hover" />
+        </div>
+    </template>
+</html>

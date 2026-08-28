@@ -1,0 +1,22 @@
+{
+    "error": {
+        "invalid_items": "Nie masz odpowiednich przedmiotów!"
+    },
+    "progress": {
+        "pick_grapes": "Zbieranie winogron..",
+        "process_wine": "Przetwarzanie wina",
+        "process_juice": "Przetwarzanie soku z winogron"
+    },
+    "task": {
+        "start_task": "[E] Aby rozpocząć",
+        "vineyard_processing": "[E] Przetwarzanie w winnicy",
+        "cancel_task": "Anulowano zadanie"
+    },
+    "menu": {
+        "title": "Przetwarzanie w winnicy",
+        "process_wine_title": "Przetwórz wino",
+        "process_juice_title": "Przetwórz sok z winogron",
+        "wine_items_needed": "Wymagany przedmiot: Sok z winogron\nPotrzebna ilość: %s",
+        "juice_items_needed": "Wymagany przedmiot: Winogrona\nPotrzebna ilość: %s"
+    }
+}

@@ -1,0 +1,225 @@
+/* ══════════ ACARDIA RP V2 — Thème Violet ══════════ */
+
+/* KILL tous les overlays/fonds noirs générés par React/Mantine */
+*[style*="background-color: rgba(0, 0, 0"] {
+  background-color: transparent !important;
+}
+*[style*="background-color: rgb(0, 0, 0"] {
+  background-color: transparent !important;
+}
+*[style*="background:#000"] {
+  background: transparent !important;
+}
+*[style*="backgroundColor"] {
+  background-color: transparent !important;
+}
+div[role="presentation"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+.mantine-Modal-overlay,
+.mantine-Overlay-root,
+[class*="Overlay"],
+[class*="overlay"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Supprimer tous les fonds noirs / sombres opaques */
+.app-wrapper,
+.inventory-wrapper,
+.inventory-grid-wrapper {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Fond des slots */
+.inventory-slot,
+.item-notification-item-box,
+.hotbar-item-slot {
+  background-color: rgba(15, 8, 30, 0.35) !important;
+  border: 1.5px solid rgba(138, 43, 226, 0.4) !important;
+  border-radius: 10px !important;
+}
+
+.inventory-slot:hover {
+  border-color: rgba(168, 85, 247, 0.8) !important;
+  background-color: rgba(138, 43, 226, 0.12) !important;
+  box-shadow: 0 0 12px rgba(138, 43, 226, 0.2) !important;
+}
+
+/* Label sous les items */
+.inventory-slot-label-box {
+  background-color: rgba(15, 8, 30, 0.7) !important;
+  border-top: 1px solid rgba(138, 43, 226, 0.2) !important;
+}
+
+.inventory-slot-label-text {
+  color: #e0d8f0 !important;
+}
+
+/* Numéro du slot */
+.inventory-slot-number {
+  color: #fff !important;
+  background-color: rgba(138, 43, 226, 0.7) !important;
+  border-radius: 4px !important;
+}
+
+/* Grille container */
+.inventory-grid-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(138, 43, 226, 0.4) transparent;
+}
+
+.inventory-grid-container::-webkit-scrollbar { width: 4px; }
+.inventory-grid-container::-webkit-scrollbar-track { background: transparent; }
+.inventory-grid-container::-webkit-scrollbar-thumb { background: rgba(138, 43, 226, 0.4); border-radius: 8px; }
+
+/* Header de grille */
+.inventory-grid-header-wrapper p {
+  color: #e0d8f0 !important;
+}
+
+/* Tooltip */
+.tooltip-wrapper {
+  background-color: rgba(15, 8, 30, 0.92) !important;
+  border: 1px solid rgba(138, 43, 226, 0.45) !important;
+  border-radius: 10px !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+.tooltip-wrapper p,
+.tooltip-header-wrapper p {
+  color: #e0d8f0 !important;
+}
+
+/* Forcer transparence sur les wrappers principaux */
+.app-wrapper,
+.inventory-wrapper,
+.inventory-grid-wrapper,
+.inventory-control-wrapper,
+.inventory-control,
+.item-slot-wrapper {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Context menu */
+.context-menu-list {
+  background-color: rgba(15, 8, 30, 0.92) !important;
+  border: 1px solid rgba(138, 43, 226, 0.45) !important;
+  border-radius: 10px !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Supprimer le fond noir du overlay clic droit */
+.context-menu-overlay,
+div[class*="context-menu"][class*="overlay"],
+div[style*="position: fixed"][style*="inset: 0"],
+.mantine-Menu-dropdown + div,
+.mantine-Overlay-root {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.context-menu-item {
+  color: #e0d8f0 !important;
+  border-radius: 6px !important;
+}
+
+.context-menu-item:hover {
+  background-color: rgba(138, 43, 226, 0.18) !important;
+  color: #a855f7 !important;
+}
+
+/* Contrôles centraux */
+.inventory-control .inventory-control-input {
+  background-color: rgba(15, 8, 30, 0.6) !important;
+  border: 1px solid rgba(138, 43, 226, 0.35) !important;
+  border-radius: 8px !important;
+  color: #e0d8f0 !important;
+}
+
+.inventory-control .inventory-control-input:focus-within {
+  background-color: rgba(15, 8, 30, 0.85) !important;
+  border-color: rgba(168, 85, 247, 0.7) !important;
+}
+
+.inventory-control .inventory-control-button {
+  background-color: rgba(15, 8, 30, 0.6) !important;
+  border: 1px solid rgba(138, 43, 226, 0.35) !important;
+  border-radius: 8px !important;
+  color: #e0d8f0 !important;
+  transition: all 0.2s !important;
+}
+
+.inventory-control .inventory-control-button:hover {
+  background-color: rgba(138, 43, 226, 0.25) !important;
+  border-color: rgba(168, 85, 247, 0.7) !important;
+}
+
+/* Useful controls dialog */
+.useful-controls-dialog {
+  background-color: rgba(15, 8, 30, 0.96) !important;
+  border: 1px solid rgba(138, 43, 226, 0.45) !important;
+  border-radius: 14px !important;
+  color: #e0d8f0 !important;
+}
+
+.useful-controls-dialog-overlay {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.useful-controls-button {
+  background-color: rgba(15, 8, 30, 0.7) !important;
+  border: 1px solid rgba(138, 43, 226, 0.35) !important;
+  border-radius: 8px !important;
+}
+
+.useful-controls-button:hover {
+  background-color: rgba(138, 43, 226, 0.25) !important;
+}
+
+/* Barre de durabilité */
+.durability-bar {
+  background: rgba(0, 0, 0, 0.5) !important;
+  border-radius: 0 0 10px 10px !important;
+}
+
+/* Barre de poids */
+.weight-bar {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(138, 43, 226, 0.15) !important;
+  border-radius: 6px !important;
+}
+
+/* Hotbar */
+.hotbar-item-slot {
+  border: 1.5px solid rgba(138, 43, 226, 0.5) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.15) !important;
+}
+
+/* Drag preview */
+.item-drag-preview {
+  border: 2px solid rgba(168, 85, 247, 0.7) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(138, 43, 226, 0.25) !important;
+}
+
+/* Notification items */
+.item-notification-action-box {
+  background-color: rgba(15, 8, 30, 0.8) !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+
+/* Info wrapper (quantité, durabilité) */
+.item-slot-info-wrapper p {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+.item-slot-currency-wrapper p {
+  color: #a855f7 !important;
+}

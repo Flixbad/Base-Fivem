@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acardia RP V2 Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="hidden">
+    <div class="backdrop"></div>
+    <div class="tablet" role="dialog" aria-label="Admin tablet">
+      <div class="bezel">
+        <header class="topbar">
+          <div class="brand">
+            <span class="crown">♛</span>
+            <div>
+              <p class="brand__live"><span>ACARDIA</span> RP V2</p>
+              <p class="brand__sub" id="serverName">Acardia RP V2 · Admin</p>
+            </div>
+            <span class="drag-hint">glisser pour deplacer</span>
+          </div>
+          <div class="topbar__right">
+            <span class="badge" id="staffBadge">STAFF</span>
+            <button class="icon-btn" id="btnRefresh" title="Actualiser">↻</button>
+            <button class="icon-btn danger" id="btnClose" title="Fermer">✕</button>
+          </div>
+        </header>
+
+        <div class="shell">
+          <nav class="sidebar">
+            <button class="nav active" data-view="dashboard">Dashboard</button>
+            <button class="nav" data-view="players" data-perm="players">Joueurs</button>
+            <button class="nav" data-view="vehicles" data-perm="vehicles">Vehicules</button>
+            <button class="nav" data-view="world" data-perm="world">Monde</button>
+            <button class="nav" data-view="reports" data-perm="reports">Reports</button>
+            <button class="nav" data-view="tools">Outils</button>
+          </nav>
+
+          <main class="content">
+            <!-- DASHBOARD -->
+            <section id="view-dashboard" class="view active">
+              <h1 class="view-title">Dashboard</h1>
+              <div class="grid cards">
+                <article class="card stat">
+                  <p>Joueurs</p>
+                  <h2 id="statPlayers">0</h2>
+                  <span id="statMax">/ 48</span>
+                </article>
+                <article class="card stat">
+                  <p>Staff online</p>
+                  <h2 id="statStaff">0</h2>
+                </article>
+                <article class="card stat">
+                  <p>Reports ouverts</p>
+                  <h2 id="statReports">0</h2>
+                </article>
+                <article class="card stat">
+                  <p>Uptime</p>
+                  <h2 id="statUptime">0m</h2>
+                </article>
+              </div>
+              <div class="card welcome">
+                <h3>Tablette Admin Acardia RP V2</h3>
+                <p>Gere les joueurs, vehicules, meteo, annonces et reports depuis une seule interface.</p>
+                <p class="hint">Raccourci: <kbd>F10</kbd> · Commande: <kbd>/admintablet</kbd> · Reports joueurs: <kbd>/report</kbd></p>
+              </div>
+            </section>
+
+            <!-- PLAYERS -->
+            <section id="view-players" class="view">
+              <div class="view-head">
+                <h1 class="view-title">Joueurs</h1>
+                <input id="playerSearch" class="search" type="search" placeholder="Rechercher nom, ID, job…" />
+              </div>
+              <div class="split">
+                <div class="list" id="playerList"></div>
+                <div class="detail card" id="playerDetail">
+                  <p class="empty">Selectionne un joueur</p>
+                </div>
+              </div>
+            </section>
+
+            <!-- VEHICLES -->
+            <section id="view-vehicles" class="view">
+              <h1 class="view-title">Vehicules</h1>
+              <div class="card form">
+                <label>Spawn modele</label>
+                <div class="row">
+                  <input id="vehModel" type="text" placeholder="ex: sultanrs" />
+                  <button class="btn primary" id="btnSpawnVeh">Spawn</button>
+                </div>
+                <div class="chips" id="quickVeh"></div>
+                <div class="row actions">
+                  <button class="btn" id="btnFixVeh">Reparer</button>
+                  <button class="btn" id="btnFlipVeh">Retourner</button>
+                  <button class="btn danger" id="btnDelVeh">Supprimer</button>
+                </div>
+              </div>
+            </section>
+
+            <!-- WORLD -->
+            <section id="view-world" class="view">
+              <h1 class="view-title">Monde</h1>
+              <div class="grid two">
+                <div class="card form">
+                  <label>Annonce serveur</label>
+                  <textarea id="announceMsg" rows="3" placeholder="Message affiche a tous…"></textarea>
+                  <button class="btn primary" id="btnAnnounce">Envoyer</button>
+                </div>
+                <div class="card form">
+                  <label>Heure</label>
+                  <div class="row">
+                    <input id="timeHour" type="number" min="0" max="23" value="12" />
+                    <input id="timeMin" type="number" min="0" max="59" value="0" />
+                    <button class="btn primary" id="btnTime">Appliquer</button>
+                  </div>
+                  <label>Meteo</label>
+                  <div class="chips" id="weatherChips"></div>
+                </div>
+              </div>
+            </section>
+
+            <!-- REPORTS -->
+            <section id="view-reports" class="view">
+              <h1 class="view-title">Reports</h1>
+              <div class="list reports" id="reportList"></div>
+            </section>
+
+            <!-- TOOLS -->
+            <section id="view-tools" class="view">
+              <h1 class="view-title">Outils</h1>
+              <div class="grid two">
+                <div class="card form">
+                  <h3>Deplacement</h3>
+                  <div class="row actions">
+                    <button class="btn primary" id="btnNoclip">Toggle Noclip</button>
+                    <button class="btn" id="btnStopSpec">Stop Spectate</button>
+                  </div>
+                  <p class="hint">Noclip: WASD + Space, Shift = rapide, Ctrl = lent</p>
+                </div>
+                <div class="card form">
+                  <h3>Coords</h3>
+                  <button class="btn primary" id="btnCoords">Copier vec4</button>
+                  <pre id="coordsOut" class="coords"></pre>
+                </div>
+              </div>
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal__card">
+      <h3 id="modalTitle">Confirmer</h3>
+      <p id="modalDesc"></p>
+      <div id="modalFields" class="form"></div>
+      <div class="row actions">
+        <button class="btn" id="modalCancel">Annuler</button>
+        <button class="btn danger" id="modalConfirm">Confirmer</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

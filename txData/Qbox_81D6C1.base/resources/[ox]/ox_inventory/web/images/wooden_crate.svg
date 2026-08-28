@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="topWood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e0b07a"/>
+      <stop offset="50%" stop-color="#c9925a"/>
+      <stop offset="100%" stop-color="#b07a42"/>
+    </linearGradient>
+    <linearGradient id="leftWood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a56b38"/>
+      <stop offset="100%" stop-color="#7a4a24"/>
+    </linearGradient>
+    <linearGradient id="rightWood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a552c"/>
+      <stop offset="100%" stop-color="#5c3818"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c9cdd3"/>
+      <stop offset="45%" stop-color="#8d939c"/>
+      <stop offset="100%" stop-color="#5a616a"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-10%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.38"/>
+    </filter>
+  </defs>
+
+  <!-- Ground shadow -->
+  <ellipse cx="128" cy="228" rx="78" ry="14" fill="#000" opacity="0.28"/>
+
+  <g filter="url(#softShadow)">
+    <!-- LEFT FACE -->
+    <polygon points="48,92 128,132 128,212 48,172" fill="url(#leftWood)"/>
+    <g stroke="#5c3818" stroke-width="2.2" fill="none" opacity="0.55">
+      <polyline points="60,114 128,148"/>
+      <polyline points="60,134 128,168"/>
+      <polyline points="60,154 128,188"/>
+    </g>
+    <!-- Metal straps left -->
+    <polygon points="70,103 86,111 86,191 70,183" fill="url(#metal)"/>
+    <polygon points="90,113 106,121 106,201 90,193" fill="url(#metal)" opacity="0.95"/>
+
+    <!-- RIGHT FACE -->
+    <polygon points="128,132 208,92 208,172 128,212" fill="url(#rightWood)"/>
+    <g stroke="#3d2410" stroke-width="2.2" fill="none" opacity="0.5">
+      <polyline points="128,148 196,114"/>
+      <polyline points="128,168 196,134"/>
+      <polyline points="128,188 196,154"/>
+    </g>
+    <polygon points="150,111 166,103 166,183 150,191" fill="url(#metal)"/>
+    <polygon points="170,121 186,113 186,193 170,201" fill="url(#metal)" opacity="0.95"/>
+
+    <!-- TOP FACE (lid) -->
+    <polygon points="48,92 128,52 208,92 128,132" fill="url(#topWood)"/>
+    <g stroke="#8a5a2b" stroke-width="2" fill="none" opacity="0.45">
+      <polyline points="68,90 148,50"/>
+      <polyline points="88,100 168,60"/>
+      <polyline points="108,110 188,70"/>
+    </g>
+    <!-- Lid metal bands -->
+    <polygon points="72,80 88,72 168,112 152,120" fill="url(#metal)"/>
+    <polygon points="92,90 108,82 188,122 172,130" fill="url(#metal)" opacity="0.95"/>
+
+    <!-- Edge highlights -->
+    <polyline points="48,92 128,52 208,92" fill="none" stroke="#f3d7a8" stroke-width="2.4" opacity="0.55"/>
+    <polyline points="48,92 128,132 208,92" fill="none" stroke="#6a4018" stroke-width="1.6" opacity="0.35"/>
+    <polyline points="128,132 128,212" fill="none" stroke="#2a1608" stroke-width="2"/>
+  </g>
+
+  <!-- Nails -->
+  <g fill="#2c3036">
+    <circle cx="78" cy="88" r="2.4"/>
+    <circle cx="98" cy="98" r="2.4"/>
+    <circle cx="158" cy="98" r="2.4"/>
+    <circle cx="178" cy="88" r="2.4"/>
+    <circle cx="78" cy="148" r="2.2"/>
+    <circle cx="98" cy="168" r="2.2"/>
+    <circle cx="158" cy="168" r="2.2"/>
+    <circle cx="178" cy="148" r="2.2"/>
+  </g>
+  <g fill="#dfe3e8" opacity="0.55">
+    <circle cx="77.2" cy="147.2" r="0.8"/>
+    <circle cx="97.2" cy="167.2" r="0.8"/>
+    <circle cx="157.2" cy="167.2" r="0.8"/>
+    <circle cx="177.2" cy="147.2" r="0.8"/>
+  </g>
+</svg>

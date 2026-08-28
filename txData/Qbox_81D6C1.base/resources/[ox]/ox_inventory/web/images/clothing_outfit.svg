@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3f4f6"/>
+      <stop offset="45%" stop-color="#c4c9d4"/>
+      <stop offset="100%" stop-color="#8b93a3"/>
+    </linearGradient>
+    <linearGradient id="hook" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8ebf0"/>
+      <stop offset="100%" stop-color="#9aa3b2"/>
+    </linearGradient>
+    <linearGradient id="cloth" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="shadow" x="-25%" y="-15%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Soft ground shadow -->
+  <ellipse cx="128" cy="236" rx="70" ry="10" fill="#000" opacity="0.22"/>
+
+  <g filter="url(#shadow)">
+    <!-- Shirt / outfit hint hanging -->
+    <path d="M78 118 L100 102 L128 112 L156 102 L178 118 L178 210 Q178 222 128 222 Q78 222 78 210 Z"
+          fill="url(#cloth)" opacity="0.92"/>
+    <path d="M100 102 L128 112 L156 102 L148 128 L128 134 L108 128 Z"
+          fill="#c4b5fd" opacity="0.9"/>
+    <path d="M108 128 L128 134 L148 128 L148 210 Q148 216 128 216 Q108 216 108 210 Z"
+          fill="#8b5cf6" opacity="0.55"/>
+
+    <!-- Hanger body -->
+    <path d="M42 116
+             C42 116 78 88 128 88
+             C178 88 214 116 214 116
+             C214 116 206 126 198 122
+             C180 112 156 104 128 104
+             C100 104 76 112 58 122
+             C50 126 42 116 42 116 Z"
+          fill="url(#metal)" stroke="#6b7280" stroke-width="2" stroke-linejoin="round"/>
+
+    <!-- Hook -->
+    <path d="M128 88
+             C128 88 128 62 128 52
+             C128 36 148 34 148 50
+             C148 58 140 60 136 56"
+          fill="none" stroke="url(#hook)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M128 88
+             C128 88 128 62 128 52
+             C128 36 148 34 148 50
+             C148 58 140 60 136 56"
+          fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" opacity="0.35"/>
+  </g>
+</svg>

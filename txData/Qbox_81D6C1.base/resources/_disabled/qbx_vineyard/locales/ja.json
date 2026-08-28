@@ -1,0 +1,22 @@
+{
+    "error": {
+        "invalid_items": "必要なアイテムを持っていません！"
+    },
+    "progress": {
+        "pick_grapes": "ブドウを摘んでいます..",
+        "process_wine": "ワインを加工中",
+        "process_juice": "グレープジュースを加工中"
+    },
+    "task": {
+        "start_task": "[E] で開始",
+        "vineyard_processing": "[E] ワイナリー加工",
+        "cancel_task": "タスクをキャンセルしました"
+    },
+    "menu": {
+        "title": "ワイナリー加工",
+        "process_wine_title": "ワインを加工",
+        "process_juice_title": "グレープジュースを加工",
+        "wine_items_needed": "必要なアイテム：グレープジュース\n必要量：%s",
+        "juice_items_needed": "必要なアイテム：ブドウ\n必要量：%s"
+    }
+}

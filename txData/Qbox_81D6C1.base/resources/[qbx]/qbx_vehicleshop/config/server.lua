@@ -1,0 +1,39 @@
+return {
+    commissionRate = 0.1, -- Percent that goes to sales person from a full car sale 10%
+    finance = {
+        paymentWarning = 10, -- time in minutes that player has to make payment before repo
+        paymentInterval = 24, -- time in hours between payment being due
+        cronSchedule = '*/10 * * * *', -- cron schedule for finance payment checks ref: https://coxdocs.dev/ox_lib/Modules/Cron/Server#cron-expression
+        preventSelling = false, -- prevents players from using /transfervehicle if financed
+    },
+    saleTimeout = 60000, -- Delay between attempts to sell/gift a vehicle. Prevents abuse
+    deleteUnpaidFinancedVehicle = false, -- true to delete unpaid vehicles from database, otherwise it will edit citizenid to hide from db select
+
+    ---@param src number Player Server ID
+    ---@param plate string Vehicle Plate
+    ---@param vehicle number Vehicle Entity ID
+    giveKeys = function(src, plate, vehicle)
+        exports.qbx_vehiclekeys:GiveKeys(src, vehicle)
+    end,
+
+    ---@param society string Society name
+    ---@param amount number Amount to add
+    ---@return boolean
+    addPlayerFunds = function(player, account, amount, reason)
+        return player.Functions.AddMoney(account, amount, reason)
+    end,
+
+    removePlayerFunds = function(player, account, amount, reason)
+        if account == 'bank' and GetResourceState('acardia_bank') == 'started' then
+            local result = exports.acardia_bank:debitPrimaryAccount(player.PlayerData.citizenid, amount, reason or 'Achat vehicule')
+            return result and result.ok
+        end
+        return player.Functions.RemoveMoney(account, amount, reason)
+    end,
+
+    addSocietyFunds = function(society, amount)
+        MySQL.insert.await('INSERT IGNORE INTO ae_society (name, balance) VALUES (?, 0)', { society })
+        MySQL.update.await('UPDATE ae_society SET balance = balance + ? WHERE name = ?', { amount, society })
+        return true
+    end,
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Auto Import Export</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+  <div id="app" class="hidden">
+
+    <div class="tablet">
+
+      <div class="bezel">
+
+        <header>
+
+          <div>
+
+            <p class="eyebrow">Auto Import Export</p>
+
+            <h1 id="tablet-title">Tablette</h1>
+
+            <p id="player-meta" class="meta"></p>
+
+          </div>
+
+          <button id="btn-close" class="ghost">Fermer</button>
+
+        </header>
+
+
+
+        <section class="duty-card">
+
+          <div>
+
+            <p>Statut service</p>
+
+            <h2 id="duty-status">Hors service</h2>
+
+          </div>
+
+          <button id="btn-duty" class="primary">Prendre service</button>
+
+        </section>
+
+
+
+        <section id="stats-card" class="stats-card">
+
+          <div class="stat">
+
+            <p>Grade chauffeur</p>
+
+            <h3 id="stat-rank">Stagiaire</h3>
+
+          </div>
+
+          <div class="stat">
+
+            <p>Missions</p>
+
+            <h3 id="stat-missions">0</h3>
+
+          </div>
+
+          <div class="stat">
+
+            <p>VIP livres</p>
+
+            <h3 id="stat-vip">0</h3>
+
+          </div>
+
+          <div class="stat">
+
+            <p>Bonus prime</p>
+
+            <h3 id="stat-bonus">+0%</h3>
+
+          </div>
+
+        </section>
+
+        <p id="stat-next" class="stat-next"></p>
+
+
+
+        <section id="balance-card" class="balance-card hidden">
+
+          <p>Solde societe</p>
+
+          <h2 id="balance">$0</h2>
+
+        </section>
+
+
+
+        <nav class="tabs">
+
+          <button class="tab active" data-tab="missions">Missions</button>
+
+          <button class="tab" data-tab="mytx">Mon suivi</button>
+
+          <button class="tab boss-only hidden" data-tab="leaderboard">Classement</button>
+
+          <button class="tab boss-only hidden" data-tab="employees">Employes</button>
+
+          <button class="tab boss-only hidden" data-tab="transactions">Societe</button>
+
+        </nav>
+
+
+
+        <section id="panel-missions" class="panel">
+
+          <div id="active-mission" class="card hidden"></div>
+
+          <div id="missions" class="list"></div>
+
+        </section>
+
+
+
+        <section id="panel-mytx" class="panel hidden">
+
+          <div id="my-transactions" class="list"></div>
+
+        </section>
+
+
+
+        <section id="panel-leaderboard" class="panel hidden">
+
+          <div id="leaderboard" class="list"></div>
+
+        </section>
+
+
+
+        <section id="panel-employees" class="panel hidden">
+
+          <button id="btn-hire" class="primary">Recruter joueur proche</button>
+
+          <div id="employees" class="list"></div>
+
+        </section>
+
+
+
+        <section id="panel-transactions" class="panel hidden">
+
+          <div id="transactions" class="list"></div>
+
+        </section>
+
+
+
+        <div class="footer-actions">
+
+          <button id="btn-refresh" class="secondary">Actualiser missions</button>
+
+          <button id="btn-report" class="danger hidden">Signaler vol</button>
+
+          <button id="btn-cancel" class="ghost hidden">Annuler mission</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>
+
+

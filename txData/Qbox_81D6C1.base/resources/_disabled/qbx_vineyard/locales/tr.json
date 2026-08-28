@@ -1,0 +1,22 @@
+{
+  "error": {
+    "invalid_items": "Gerekli eşyalarınız yok!"
+  },
+  "progress": {
+    "pick_grapes": "Üzümler toplanıyor...",
+    "process_wine": "Şarap işleniyor",
+    "process_juice": "Üzüm suyu işleniyor"
+  },
+  "task": {
+    "start_task": "[E] Başlamak için",
+    "vineyard_processing": "[E] Bağ İşlemesi",
+    "cancel_task": "Görevi iptal ettin"
+  },
+  "menu": {
+    "title": "Bağ İşlemesi",
+    "process_wine_title": "Şarap İşleme",
+    "process_juice_title": "Üzüm Suyu İşleme",
+    "wine_items_needed": "Gerekli Eşya: Üzüm Suyu\nGerekli Miktar: %s",
+    "juice_items_needed": "Gerekli Eşya: Üzüm\nGerekli Miktar: %s"
+  }
+}

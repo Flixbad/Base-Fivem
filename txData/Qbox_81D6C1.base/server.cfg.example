@@ -1,0 +1,61 @@
+## Copier ce fichier en server.cfg et renseigner vos valeurs.
+## NE JAMAIS commit server.cfg avec votre vraie cle Cfx.re.
+
+endpoint_add_tcp "0.0.0.0:30120"
+endpoint_add_udp "0.0.0.0:30120"
+sv_maxclients 48
+set steam_webApiKey "none"
+sets tags "roleplay, francais, qbox, acardia"
+
+sv_licenseKey "cfxk_VOTRE_CLE_ICI"
+sv_hostname "Acardia RP V2"
+sets sv_projectName "Acardia RP V2"
+sets sv_projectDesc "RP immersif a Los Santos. Ecrivez votre histoire."
+sets locale "fr-FR"
+load_server_icon myLogo.png
+set sv_enforceGameBuild 3258
+set mysql_connection_string "mysql://root@localhost/Qbox_81D6C1?charset=utf8mb4"
+
+exec voice.cfg
+exec ox.cfg
+
+setr qb_locale "fr"
+setr qbx:enableBridge "true"
+set qbx:enableQueue "true"
+set qbx:discordLink "discord.gg/votre-serveur"
+set qbx:acknowledge "true"
+
+ensure mapmanager
+ensure chat
+ensure spawnmanager
+ensure sessionmanager
+stop basic-gamemode
+ensure hardcap
+ensure baseevents
+
+ensure liveafk_loadingscreen
+ensure liveafk_admin
+
+ensure ox_lib
+ensure qbx_core
+ensure ox_target
+ensure [ox]
+ensure [qbx]
+ensure [standalone]
+
+ensure liveafk_multichar
+ensure liveafk_pausemenu
+
+ensure screencapture
+ensure uz_AutoShot
+ensure qbx_vehiclekeys
+ensure qbx_garages
+ensure qbx_vehicleshop
+ensure qbx_police
+ensure xt-prison
+
+ensure storage_warehouse2
+ensure [local]
+
+exec permissions.cfg
+exec misc.cfg

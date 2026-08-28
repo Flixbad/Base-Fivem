@@ -1,0 +1,22 @@
+{
+    "error": {
+        "invalid_items": "Não tens os items corretos!"
+    },
+    "progress": {
+        "pick_grapes": "A Apanhar Uvas..",
+        "process_wine": "A processar Vinho",
+        "process_juice": "A processar sumo de uva"
+    },
+    "task": {
+        "start_task": "[E] Para Começar",
+        "vineyard_processing": "[E] Processamento de Vinhedos",
+        "cancel_task": "Cancelaste a tarefa"
+    },
+    "menu": {
+        "title": "Vineyard Processing",
+        "process_wine_title": "Processar Vinho",
+        "process_juice_title": "Processar Sumo de Uva",
+        "wine_items_needed": "Item Necessário: Sumo de Uva\nMontante Necessário: %s",
+        "juice_items_needed": "Item Necessário: Grape\nMontante Necessário: %s"
+    }
+}

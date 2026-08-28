@@ -1,0 +1,22 @@
+{
+    "error": {
+        "invalid_items": "Du hast nicht die korrekten Gegenstände!"
+    },
+    "progress": {
+        "pick_grapes": "Sammle Weintrauben ..",
+        "process_wine": "Verarbeite Wein",
+        "process_juice": "Verarbeite Traubensaft"
+    },
+    "task": {
+        "start_task": "[E] zum Starten",
+        "vineyard_processing": "[E] Weinberg Verarbeitung",
+        "cancel_task": "Du hast deine Aufgabe abgebrochen"
+    },
+    "menu": {
+        "title": "Weinberg Verarbeitung",
+        "process_wine_title": "Wein verarbeiten",
+        "process_juice_title": "Traubensaft verarbeiten",
+        "wine_items_needed": "Benötigtes Item: Traubensaft\nBenötigte Menge: %s",
+        "juice_items_needed": "Benötigtes Item: Traube\nBenötigte Menge: %s"
+    }
+}

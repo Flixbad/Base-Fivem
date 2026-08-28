@@ -1,0 +1,25 @@
+RegisterCommand('record', function()
+    StartRecording(1)
+    exports.qbx_core:Notify(locale('success.started_recording'), 'success')
+end, false)
+
+RegisterCommand('clip', function()
+    StartRecording(0)
+    exports.qbx_core:Notify(locale('success.stopped_recording'), 'success')
+end, false)
+
+RegisterCommand('saveclip', function()
+    StopRecordingAndSaveClip()
+    exports.qbx_core:Notify(locale('success.saved_recording'), 'success')
+end, false)
+
+RegisterCommand('delclip', function()
+    StopRecordingAndDiscardClip()
+    exports.qbx_core:Notify(locale('error.deleted_recording'), 'error')
+end, false)
+
+RegisterCommand('editor', function()
+    NetworkSessionLeaveSinglePlayer()
+    ActivateRockstarEditor()
+    exports.qbx_core:Notify(locale('error.later_aligator'), 'error')
+end, false)
